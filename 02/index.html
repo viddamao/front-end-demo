@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScript Code Sample</title>
+		<style>
+		body,ul,li{margin:0;padding:0;}
+		html,body{height:100%;}
+		body{font:12px/1.5 Tahoma;}
+		li{list-style-type:none;}
+		a:link,a:visited{text-decoration:none;}
+		a:hover{text-decoration:underline;}
+		#outer{width:420px;margin:0 auto;overflow:hidden;zoom:1;}
+		#skin,#nav{overflow:hidden;zoom:1;}
+		#skin{margin:10px 0;}
+		#skin li{float:left;width:6px;height:6px;cursor:pointer;overflow:hidden;margin-right:10px;text-indent:-9999px;border-width:4px;border-style:solid;}
+		#skin li.current{background:#fff!important;}
+		#red{border-color:red;background:red;}
+		#green{border-color:green;background:green;}
+		#black{border-color:black;background:black;}
+		#nav{border:1px solid #fff;}
+		#nav li{float:left;width:82px;line-height:25px;text-align:center;border-right:1px solid #fff;}
+		#nav li.last{width:83px;border-right-width:0;}
+		#nav li a{color:#fff;}
+		</style>
+		<link href="black.css" rel="stylesheet" type="text/css">
+		<script>
+		window.onload = function ()
+		{
+		var oLink = document.getElementsByTagName("link")[0];
+		var oSkin = document.getElementById("skin").getElementsByTagName("li");
+		
+		for(var i = 0; i< oSkin.length; i++)
+			{
+		oSkin[i].onclick = function ()
+		{
+			for(var p in oSkin) oSkin[p].className = "";
+			this.className = "current";
+			oLink['href'] = this.id + ".css";
+			}
+		}
+		
+		};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<ul id="skin">
+				<li id="red" title="Red" class="">Red</li><li id="green" class="" title="Green">Green</li><li id="black" title="Black" class="current">Black</li>
+			</ul>
+			<ul id="nav">
+				<li><a href="javascript:;">News</a></li>
+				<li><a href="javascript:;">Entertainment</a></li>
+				<li><a href="javascript:;">Sports</a></li>
+				<li><a href="javascript:;">Movies</a></li>
+				<li class="last"><a href="javascript:;">Music</a></li>
+			</ul>
+		</div>
+	</body>
+</html>
