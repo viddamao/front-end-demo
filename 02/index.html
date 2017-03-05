@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>JavaScript Code Sample</title>
+		<title>Change Website Theme</title>
 		<style>
 		body,ul,li{margin:0;padding:0;}
 		html,body{height:100%;}
@@ -11,10 +11,10 @@
 		a:link,a:visited{text-decoration:none;}
 		a:hover{text-decoration:underline;}
 		#outer{width:420px;margin:0 auto;overflow:hidden;zoom:1;}
-		#skin,#nav{overflow:hidden;zoom:1;}
-		#skin{margin:10px 0;}
-		#skin li{float:left;width:6px;height:6px;cursor:pointer;overflow:hidden;margin-right:10px;text-indent:-9999px;border-width:4px;border-style:solid;}
-		#skin li.current{background:#fff!important;}
+		#theme,#nav{overflow:hidden;zoom:1;}
+		#theme{margin:10px 0;}
+		#theme li{float:left;width:6px;height:6px;cursor:pointer;overflow:hidden;margin-right:10px;text-indent:-9999px;border-width:4px;border-style:solid;}
+		#theme li.current{background:#fff!important;}
 		#red{border-color:red;background:red;}
 		#green{border-color:green;background:green;}
 		#black{border-color:black;background:black;}
@@ -28,13 +28,14 @@
 		window.onload = function ()
 		{
 		var oLink = document.getElementsByTagName("link")[0];
-		var oSkin = document.getElementById("skin").getElementsByTagName("li");
+		var oTheme = document.getElementById("theme").getElementsByTagName("li");
 		
-		for(var i = 0; i< oSkin.length; i++)
+		for(var i = 0; i< oTheme.length; i++)
 			{
-		oSkin[i].onclick = function ()
+		oTheme[i].onclick = function ()
 		{
-			for(var p in oSkin) oSkin[p].className = "";
+			//clear all theme selection and add current class to the clicked theme
+			for(var p in oTheme) oTheme[p].className = "";
 			this.className = "current";
 			oLink['href'] = this.id + ".css";
 			}
@@ -45,7 +46,7 @@
 	</head>
 	<body>
 		<div id="outer">
-			<ul id="skin">
+			<ul id="theme">
 				<li id="red" title="Red" class="">Red</li><li id="green" class="" title="Green">Green</li><li id="black" title="Black" class="current">Black</li>
 			</ul>
 			<ul id="nav">

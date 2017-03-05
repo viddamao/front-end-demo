@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Carousel</title>
+		<style>
+		body,ul,li{margin:0;padding:0;overflow: hidden;background-color: black;}
+		html,body{height:100%;}
+		body{font:12px/1.5 Tahoma;}
+		.image{width:800px;height:600px;display:none;margin:5% auto;}
+		.current_img{display:block;}
+		#carousel_control{margin:0 auto;width: 100px;}
+		#carousel_control li{float:left;width:12px;height:12px;cursor:pointer;overflow:hidden;margin-right:10px;text-indent:-9999px;background-color: white;}
+		#carousel_control li.current_tab{background:black!important;width:6px;height:6px;
+			border-width:4px;border-style:solid;border-color: white;}
+		</style>
+		<script>
+		window.onload = function ()
+		{
+			var current = 0;
+			var oImg = document.getElementsByTagName("img");
+			var oBtn = document.getElementsByTagName("li");
+			for (var i = 0; i < oBtn.length; i++)
+			{
+				oBtn[i].index = i;
+				oBtn[i].onclick = function ()
+				{
+					this.index == oBtn.length - 1;
+					document.getElementsByClassName("current_img")[0]
+					.classList.remove("current_img");
+					document.getElementsByClassName("current_tab")[0]
+					.classList.remove("current_tab");
+					this.classList.add('current_tab');
+					oImg[this.index].classList.add("current_img");
+				}
+			}
+			
+			setInterval(function(){
+				current+=1;
+			 	console.log(current);
+			 	oBtn[current%3].click();
+			 }, 3000);
+		
+		};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<div id="div1">
+				<img class="image current_img" src="1.png" alt="img1">
+				<img class="image" src="2.jpg" alt="img2" >
+				<img class="image" src="3.jpg" alt="img3">
+			</div>
+			<ul id="carousel_control">
+				<li class="current_tab">1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</div>
+	</body>
+</html>
