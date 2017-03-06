@@ -1,0 +1,21 @@
+{
+    "name": "front-end-demo",
+    "version": "1.0.0",
+    "description": "Front end code samples and demos",
+    "devDependencies": {
+        "jshint": "^2.9.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/viddamao/front-end-demo.git"
+    },
+    "keywords": [
+        "javascript"
+    ],
+    "author": "Wenjun Mao",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/viddamao/front-end-demo/issues"
+    },
+    "homepage": "https://github.com/viddamao/front-end-demo#readme"
+}
