@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Countdown Timer</title>
+		<style>
+			body{
+				background-color: black;
+				cursor:default;
+			}
+			h1{
+				margin-left: 10%;
+				color:white;
+			}
+			div{
+				width:60%;
+				margin: 0 auto;
+				display: flex;
+			}
+			div>p,div>span{
+				margin:10px;
+				color:white;
+				font-weight: bolder;
+				font-size: 30px;
+			}
+			div>span{
+				color:black;
+				background-color: white;
+				line-height: 30px;
+				padding: 5px;
+			}
+			button{
+				width:200px;
+				padding:10px 50px;
+				margin-right: 10%;
+				font-size: 30px;
+				background-color: green;
+				color:white;
+				cursor:pointer;
+			}
+		</style>
+		<script>
+			var spanList,btn,id; 
+			window.onload = function (){
+				spanList = document.getElementsByTagName("span");
+				btn = document.getElementsByTagName("button")[0];
+			}
+			function format(s) {
+				return s.toString().replace(/^(\d)$/,'0$1')
+
+			}
+			function toggleTimer() {
+				if (btn.style["background-color"]=="red"){
+					//toggle btn color and text
+					btn.style["background-color"] = "green";
+					btn.innerHTML = btn.style["background-color"] = "Start";
+					clearInterval(id);
+				}
+				else{
+					btn.style["background-color"] = "red";
+					btn.innerHTML = btn.style["background-color"] = "Pause";
+
+					//parse the minute and second value 
+					id = setInterval(function(){ 
+						spanList[1].innerHTML=format(parseInt(spanList[1].innerHTML) - 1);
+						if (spanList[1].innerHTML==-1){
+							spanList[0].innerHTML=format(parseInt(spanList[0].innerHTML) - 1);
+							spanList[1].innerHTML=59;
+							if (spanList[0].innerHTML==-1){
+								alert("Time is up");
+								spanList[0].innerHTML = "00";
+								spanList[1].innerHTML = "00";
+								toggleTimer();
+							}
+
+						}
+					}, 1000);
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<h1>Countdown Timer</h1>
+		<div>
+			<span contenteditable="true">00</span>
+			<p>Min</p>
+			<span contenteditable="true">30</span>
+			<p>Sec</p>
+		</div>
+		<div>
+			<button onclick="toggleTimer()">Start</button>
+		</div>
+	</body>
+</html>
