@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Star Rating</title>
+		<style>
+			body{
+				background-color: black;
+				cursor:default;
+			}
+			h1{
+				color:white;
+			}
+			span{
+				color:white;
+				font-weight: bold;
+				margin: 30px;
+			}
+			li{
+				list-style-type: none;
+				border:0px;
+				width:30px;
+				height:30px;
+				cursor:pointer;
+				float: left;
+				background: url('star.png') no-repeat;
+			}
+			#rating_desc{
+				margin:50px;
+				color:white;
+			}
+		</style>
+		<script>
+		var finalRating = 0,
+		rating=["","Terrible","Poor","Average","Good","Excellent"];
+		window.onload = function (){
+			document.getElementById("starList").addEventListener("click",function(e) {
+			  if(e.target && e.target.nodeName == "LI") {
+				// Click handler
+				finalRating = e.target.id.replace("star-","");
+				if (finalRating>0&&finalRating<=5){
+					document.getElementById("rating_desc").innerHTML = rating[finalRating];
+					NodeList.prototype.forEach = Array.prototype.forEach;
+					starList.childNodes.forEach(function(item){
+						if (item.id){
+							item.style.background = "url('star.png') no-repeat";
+							if (item.id.replace("star-","")<=finalRating){
+								item.style.background = "url('star_0.png') no-repeat";
+							}
+						}
+						
+
+					});
+				}
+			  }
+			});
+		}
+		</script>
+	</head>
+	<body>
+		<h1>Click to Rate</h1>
+		<span>click the stars to rate the product, implemented with event delegation</span>
+		<ul id="starList">
+			<li id="star-1"></li>
+			<li id="star-2"></li>
+			<li id="star-3"></li>
+			<li id="star-4"></li>
+			<li id="star-5"></li>
+		</ul>
+		<span id="rating_desc"></span>
+	</body>
+</html>
