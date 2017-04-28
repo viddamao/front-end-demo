@@ -17,5 +17,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://viddamao.github.io/front-end-demo/07/"
+  "homepage": "https://viddamao.github.io/front-end-demo/"
 }
