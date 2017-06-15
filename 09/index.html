@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="shortcut icon" href="../favicon.ico">
+		<title>2048 Game</title>
+		<style>
+			body{
+				background-color: black;
+				cursor:default;
+				overflow: hidden;
+			}
+			h1,p{
+				color:white;
+			}
+			pre{
+				margin-top: 550px;
+				color:#f8f8f8;
+				font-weight: bold;
+				font-size:1.2em;
+			}
+			#wrapper{
+				width:500px;
+				margin:0 auto;
+				color:white;
+				-moz-user-select: none; 
+				-webkit-user-select: none; 
+				-ms-user-select:none; 
+				user-select:none;
+				-o-user-select:none;
+			}
+			#operations,#result{
+				width:480px;
+				height:80px;
+				padding-right: 20px;
+				margin:0;
+				padding-top: 20px;
+				background-color: white;
+				color:black;
+				font-weight: bolder;
+				font-size:50px;
+				line-height: 80px;
+				text-align:right;
+				border:none;
+			}
+			#result{
+				padding-top: 0;
+				height:60px;
+				font-size:40px;
+				line-height: 40px;
+				color:grey;
+			}
+			#blkList{
+				width:400px;
+				float: left;
+				margin:0;
+				padding:0;
+				background-color: black;
+			}
+			#blkList li{
+				background-color: #ccc0b3;
+				width:90px;
+				height:90px;
+				float:left;
+				list-style-type:none;
+				font-size: 30px;
+				text-align:center;
+				margin:5px;
+				line-height: 80px;
+				font-weight: bolder;
+			
+			}
+			@media screen and (max-width: 600px) {
+    			pre {
+        				display:none;
+
+    			}
+    			#back_btn{
+    				margin-top: 20px;
+    			}
+			}
+			#back_btn{
+				background-color: black;
+				color:white;
+				font-size: 2em;
+				cursor:pointer;
+				text-decoration: none;
+
+			}
+		</style>
+		<script>
+		
+		</script>
+	</head>
+	<body>
+		<h1>2048</h1>
+		<p>Control with keyboard arrow keys, &nbsp; &larr; &nbsp; &rarr; &nbsp; &uarr; &nbsp; &darr; &nbsp;</p>
+		<div id="wrapper"  unselectable="on" onselectstart="return false;">
+		<ul id="blkList">
+			<li id="blk-00"></li>
+			<li id="blk-01"></li>
+			<li id="blk-02"></li>
+			<li id="blk-03"></li>
+			<li id="blk-10"></li>
+			<li id="blk-11"></li>
+			<li id="blk-12"></li>
+			<li id="blk-13"></li>
+			<li id="blk-20"></li>
+			<li id="blk-21"></li>
+			<li id="blk-22"></li>
+			<li id="blk-23"></li>
+			<li id="blk-30"></li>
+			<li id="blk-31"></li>
+			<li id="blk-32"></li>
+			<li id="blk-33"></li>
+		</ul>
+
+		</div>
+	<pre>
+	<code class="javascript">	
+	</code>
+	</pre>
+	<a id="back_btn" href="https://viddamao.github.io/?tab=5">&lt; Back</a>
+	<link rel="stylesheet" href="../highlight/styles/monokai.css">
+	<script src="../highlight/highlight.pack.js"></script>
+	<script src="index.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="shortcut icon" href="../favicon.ico">
+		<title>Calculator</title>
+		<style>
+			body{
+				background-color: black;
+				cursor:default;
+				overflow: hidden;
+			}
+			h1{
+				color:white;
+			}
+			pre{
+				margin-top: 550px;
+				color:#f8f8f8;
+				font-weight: bold;
+				font-size:1.2em;
+			}
+			#wrapper{
+				width:500px;
+				margin:0 auto;
+				color:white;
+				-moz-user-select: none; 
+				-webkit-user-select: none; 
+				-ms-user-select:none; 
+				user-select:none;
+				-o-user-select:none;
+			}
+			#operations,#result{
+				width:480px;
+				height:80px;
+				padding-right: 20px;
+				margin:0;
+				padding-top: 20px;
+				background-color: white;
+				color:black;
+				font-weight: bolder;
+				font-size:50px;
+				line-height: 80px;
+				text-align:right;
+				border:none;
+			}
+			#result{
+				padding-top: 0;
+				height:60px;
+				font-size:40px;
+				line-height: 40px;
+				color:grey;
+			}
+			#btnList{
+				width:300px;
+				float: left;
+				margin:0;
+				padding:0;
+			}
+			#btnList li{
+				background-color: #313133;
+				width:100px;
+				height:100px;
+				float:left;
+				list-style-type:none;
+				font-size: 30px;
+				text-align:center;
+				line-height: 100px;
+				cursor:pointer;
+			}
+			#opList{
+				margin:0;
+				padding:0;
+				float: right;
+				width:200px;		
+				
+			}			
+			#opList li{
+				width:100px;
+				height:100px;
+				background-color: #7F7E7A;
+				float:left;
+				list-style-type:none;
+				font-size: 30px;
+				text-align:center;
+				line-height: 100px;
+				cursor:pointer;
+			}
+			@media screen and (max-width: 600px) {
+    			pre {
+        				display:none;
+
+    			}
+    			#back_btn{
+    				margin-top: 20px;
+    			}
+			}
+			#back_btn{
+				background-color: black;
+				color:white;
+				font-size: 2em;
+				cursor:pointer;
+				text-decoration: none;
+
+			}
+		</style>
+		<script>
+		
+		</script>
+	</head>
+	<body>
+		<h1>Calculator</h1>
+		<div id="wrapper"  unselectable="on" onselectstart="return false;">
+		<p id="operations"></p>
+		<p id="result">0</p>
+		<ul id="btnList">
+			<li id="btn-7">7</li>
+			<li id="btn-8">8</li>
+			<li id="btn-9">9</li>
+			<li id="btn-4">4</li>
+			<li id="btn-5">5</li>
+			<li id="btn-6">6</li>
+			<li id="btn-1">1</li>
+			<li id="btn-2">2</li>
+			<li id="btn-3">3</li>
+			<li id="btn-.">.</li>
+			<li id="btn-0">0</li>
+			<li id="btn-=">&equals;</li>
+		</ul>
+		<ul id="opList">
+			
+			<li id="btn-del">&larr;</li>
+			<li id="btn-clr" style="background-color: orange;">C</li>
+			<li id="btn-/">&divide;</li>
+			<li id="btn-*">&times;</li>
+			<li id="btn-+">&plus;</li>
+			<li id="btn--">&minus;</li>
+			<li id="btn-(">(</li>
+			<li id="btn-)">)</li>
+		</ul>
+		</div>
+	<pre>
+	<code class="javascript">	
+	</code>
+	</pre>
+	<a id="back_btn" href="https://viddamao.github.io/?tab=5">&lt; Back</a>
+	<link rel="stylesheet" href="../highlight/styles/monokai.css">
+	<script src="../highlight/highlight.pack.js"></script>
+	<script src="index.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	</body>
+</html>

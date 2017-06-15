@@ -5,12 +5,12 @@ import './App.css';
 class App extends Component {
   render() {
     return (
+    <div className="wrapper">
+      <h1 className="todo-title">React-Todos</h1>
+      <p>implements a todo list with React</p>
       <div className="App">
-        <div className="App-header">
-          
-          <h2>Test React</h2>
-        </div>
-      </div>
+       </div>
+    </div>
     );
   }
 }
