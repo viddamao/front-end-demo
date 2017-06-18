@@ -1,9 +1,18 @@
 var matrix = [
-    [2, 0, 2, 0],
-    [0, 0, 0, 0],
-    [4, 0, 2, 0],
-    [0, 0, 0, 0]
-];
+        [2, 0, 2, 0],
+        [2, 0, 0, 0],
+        [4, 0, 2, 0],
+        [4, 0, 0, 0]
+    ],
+    point = 0,
+    moved_flag = false,
+    matrix_cpy = [
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
+    ];
+
 var COLOR_MAP = {
         2: ['white', '#776e65'],
         4: ['white', '#776e65'],
@@ -23,8 +32,36 @@ var LOOP_INDEX = [
     [0, 1, 2, 3],
     [3, 2, 1, 0]
 ];
+var deep_copy = () => {
+    for (i of[0, 1, 2, 3]) {
+        for (j of[0, 1, 2, 3]) {
+            matrix_cpy[i][j] = 0+ matrix[i][j];
+        }
+    }
+}
 
+var add_random = () => {
+    while (true) {
+        let index = Math.round(Math.random() * 15);
+        if (matrix[Math.floor(index / 4)][index % 4] == 0) {
+            let r = Math.random();
+            matrix[Math.floor(index / 4)][index % 4] = 2;
+            break;
+        }
+    }
+}
+var check_moved = () => {
+    for (i of[0, 1, 2, 3]) {
+        for (j of[0, 1, 2, 3]) {
+            console.log(matrix[i][j], matrix_cpy[i][j])
+            if (matrix[i][j] !== matrix_cpy[i][j]) {
+                moved_flag = true;
+            }
+        }
+    }
+}
 var move_block = (direction) => {
+    moved_flag = false;
     switch (direction) {
         case "up":
             {
@@ -41,6 +78,7 @@ var move_block = (direction) => {
                     while (queue.length > 0) {
                         let current = queue.shift();
                         if (current === queue[0]) {
+                            point += current * 2;
                             matrix[j][i] = current * 2;
                             queue.shift();
                             j++;
@@ -49,6 +87,10 @@ var move_block = (direction) => {
                             j++;
                         }
                     }
+                }
+                check_moved();
+                if (moved_flag) {
+                    add_random();
                 }
                 break;
             }
@@ -67,6 +109,7 @@ var move_block = (direction) => {
                     while (queue.length > 0) {
                         let current = queue.shift();
                         if (current === queue[0]) {
+                            point += current * 2;
                             matrix[j][i] = current * 2;
                             queue.shift();
                             j--;
@@ -76,13 +119,17 @@ var move_block = (direction) => {
                         }
                     }
                 }
+                check_moved();
+                if (moved_flag) {
+                    add_random();
+                }
                 break;
             }
         case "left":
             {
                 for (let i of[0, 1, 2, 3]) {
                     var queue = [];
-                    for (let j of[0,1,2,3]) {
+                    for (let j of[0, 1, 2, 3]) {
                         if (matrix[i][j] !== 0) {
                             queue.push(matrix[i][j]);
                             matrix[i][j] = 0;
@@ -93,6 +140,7 @@ var move_block = (direction) => {
                     while (queue.length > 0) {
                         let current = queue.shift();
                         if (current === queue[0]) {
+                            point += current * 2;
                             matrix[i][j] = current * 2;
                             queue.shift();
                             j++;
@@ -101,6 +149,10 @@ var move_block = (direction) => {
                             j++;
                         }
                     }
+                }
+                check_moved();
+                if (moved_flag) {
+                    add_random();
                 }
                 break;
             }
@@ -119,6 +171,7 @@ var move_block = (direction) => {
                     while (queue.length > 0) {
                         let current = queue.shift();
                         if (current === queue[0]) {
+                            point += current * 2;
                             matrix[i][j] = current * 2;
                             queue.shift();
                             j--;
@@ -127,6 +180,10 @@ var move_block = (direction) => {
                             j--;
                         }
                     }
+                }
+                check_moved();
+                if (moved_flag) {
+                    add_random();
                 }
                 break;
             }
@@ -142,6 +199,7 @@ var move_block = (direction) => {
 window.onload = function() {
     paint();
     document.addEventListener('keydown', function(event) {
+        deep_copy();
         switch (event.code) {
             case "ArrowUp":
                 {
@@ -175,9 +233,10 @@ window.onload = function() {
         }
     });
 }
-var grid = document.getElementById("blkList");
+var grid = document.getElementById("blkList"),
+    score = document.getElementById("scoreTab");
 var paint = () => {
-
+    score.innerHTML = point;
     for (let i in [0, 1, 2, 3]) {
         for (let j in [0, 1, 2, 3]) {
             let current = grid.children[parseInt(i * 4) + parseInt(j)];

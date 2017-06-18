@@ -71,7 +71,37 @@
 				margin:7.5px;
 				line-height: 100px;
 				font-weight: bolder;
+				-webkit-animation: blkmove ease 1s; /* Safari 4.0 - 8.0 */
+    				animation: blkmove ease 1s;
+			}
+			/* Safari 4.0 - 8.0 */
+			@-webkit-keyframes blkmove {
+			  0% {
+			    opacity: 0;
+			    -webkit-transform: scale(0);
+			    -moz-transform: scale(0);
+			  }
 			
+			  100% {
+			    opacity: 1;
+			    -webkit-transform: scale(1);
+			    -moz-transform: scale(1);
+			  }			
+			}
+			
+			/* Standard syntax */
+			@keyframes blkmove {
+			  0% {
+			    opacity: 0;
+			    -webkit-transform: scale(0);
+			    -moz-transform: scale(0);
+			  }
+			
+			  100% {
+			    opacity: 1;
+			    -webkit-transform: scale(1);
+			    -moz-transform: scale(1);
+			  }			
 			}
 			@media screen and (max-width: 600px) {
     			pre {
@@ -98,6 +128,7 @@
 	<body>
 		<h1>2048</h1>
 		<p>Control with keyboard arrow keys, &nbsp; &larr; &nbsp; &rarr; &nbsp; &uarr; &nbsp; &darr; &nbsp;</p>
+		<p class="score">Score:&nbsp;<span id="scoreTab"></span></p>
 		<div id="wrapper"  unselectable="on" onselectstart="return false;">
 		<ul id="blkList">
 			<li id="blk-00"></li>
